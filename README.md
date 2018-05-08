@@ -1,15 +1,16 @@
-Product Name
----------------
-Materialize - Material Design Admin Template
+# Kore Web
+
+User interface for kore framework.  User will deploy kore_collector to a single system.  
+Kore Collector will be used to grab the data from each data source and push to Kore Aggregator.
+Kore Aggregator will process the data into Neo4J and yield an entity and relationships search.
+
+Kore Web will be where the analyst can perform basic search and interact with common addons
+such as BloodHound for investigations.
+
+## Requirements
+
+- Python 3 with requirements.txt installed
+- Kore Aggregator installed
+- Kore Web configured to talk to Neo4J 
 
 
-Product Description
--------------------
-#1 Selling & Most Popular Material Design Admin Template of All Time
-Join The 2,500+ Satisfied Customers Today
-
-
-Online Documentation
---------------------
-You will find documentation in your downloaded zip file from ThemeForest. You can access documentation online as well.
-Documentation URL: http://demo.geekslabs.com/materialize/documentation
