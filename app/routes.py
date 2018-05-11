@@ -10,8 +10,8 @@ app.secret_key = os.urandom(24)
 @routes.route('/home')
 @routes.route('/index')
 def home():
-    update_page("home", "index.html")
-    return login_check()
+    print "hello"
+    return render_template('index.html')
 
 @routes.route('/login', methods=['GET', 'POST'])
 def login():
