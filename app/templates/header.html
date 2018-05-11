@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>KORE Web | </title>
+    <!-- Favicons-->
+    <link rel="icon" href="static/images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="static/images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="static/css/themes/semi-dark-menu/materialize.css" type="text/css" rel="stylesheet">
+    <link href="static/css/themes/semi-dark-menu/style.css" type="text/css" rel="stylesheet">
+    <!-- Custome CSS-->
+    <link href="static/css/custom/custom.css" type="text/css" rel="stylesheet">
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="static/vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="static/vendors/jvectormap/jquery-jvectormap.css" type="text/css" rel="stylesheet">
+    <link href="static/vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+    {% block css %}{% endblock %}
+</head>
+<body class="layout-semi-dark">
+<!-- Start Page Loading -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- End Page Loading -->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- START HEADER -->
+<header id="header" class="page-topbar">
+    <!-- start header nav-->
+    <div class="navbar-fixed">
+        <nav class="navbar-color">
+            <div class="nav-wrapper">
+                <div class="header-search-wrapper hide-on-med-and-down sideNav-lock">
+                    <i class="material-icons">search</i>
+                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Cipher Search" />
+                </div>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
+                            <i class="material-icons">settings_overscan</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
+                            <i class="material-icons">notifications_none
+                                <small class="notification-badge">5</small>
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
+                  <span class="avatar-status avatar-online">
+                    <img src="static/images/avatar/avatar-7.png" alt="avatar">
+                    <i></i>
+                  </span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- translation-button -->
+                <ul id="translation-dropdown" class="dropdown-content">
+                    <li>
+                        <a href="#!" class="grey-text text-darken-1">
+                            <i class="flag-icon flag-icon-gb"></i> English</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-1">
+                            <i class="flag-icon flag-icon-fr"></i> French</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-1">
+                            <i class="flag-icon flag-icon-cn"></i> Chinese</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-1">
+                            <i class="flag-icon flag-icon-de"></i> German</a>
+                    </li>
+                </ul>
+                <!-- notifications-dropdown -->
+                <ul id="notifications-dropdown" class="dropdown-content">
+                    <li>
+                        <h6>NOTIFICATIONS
+                            <span class="new badge">5</span>
+                        </h6>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-2">
+                            <span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> A new order has been placed!</a>
+                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-2">
+                            <span class="material-icons icon-bg-circle red small">stars</span> Completed the task</a>
+                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-2">
+                            <span class="material-icons icon-bg-circle teal small">settings</span> Settings updated</a>
+                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-2">
+                            <span class="material-icons icon-bg-circle deep-orange small">today</span> Director meeting started</a>
+                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
+                    </li>
+                    <li>
+                        <a href="#!" class="grey-text text-darken-2">
+                            <span class="material-icons icon-bg-circle amber small">trending_up</span> Generate monthly report</a>
+                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
+                    </li>
+                </ul>
+                <!-- profile-dropdown -->
+                <ul id="profile-dropdown" class="dropdown-content">
+                    <li>
+                        <a href="#" class="grey-text text-darken-1">
+                            <i class="material-icons">face</i> Profile</a>
+                    </li>
+                    <li>
+                        <a href="#" class="grey-text text-darken-1">
+                            <i class="material-icons">settings</i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="#" class="grey-text text-darken-1">
+                            <i class="material-icons">live_help</i> Help</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#" class="grey-text text-darken-1">
+                            <i class="material-icons">lock_outline</i> Lock</a>
+                    </li>
+                    <li>
+                        <a href="#" class="grey-text text-darken-1">
+                            <i class="material-icons">keyboard_tab</i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- END HEADER -->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- START MAIN -->
+<div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
+        <!-- START LEFT SIDEBAR NAV-->
+        <aside id="left-sidebar-nav" class="nav-collapsible nav-collapsed">
+            <div class="brand-sidebar">
+                <h1 class="logo-wrapper">
+                    <a href="index.html" class="brand-logo darken-1">
+                        <img src="static/images/logo/materialize-logo.png" class="rotate180">
+                        <span class="logo-text hide-on-med-and-down">Kore Web</span>
+                    </a>
+                    <a href="#" class="navbar-toggler">
+                        <i class="material-icons">radio_button_checked</i>
+                    </a>
+                </h1>
+            </div>
+            <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                <li class="no-padding">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li class="bold active">
+                            <a class="collapsible-header waves-effect waves-cyan">
+                                <i class="material-icons">dashboard</i>
+                                <span class="nav-text">Applications</span>
+                            </a>
+                            <div class="collapsible-body" style="display">
+                                <ul>
+                                    <li class="active">
+                                        <a href="static/html/page-search.html">
+                                            <i class="material-icons">keyboard_arrow_right</i>
+                                            <span>Search</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard-analytics.html">
+                                            <i class="material-icons">keyboard_arrow_right</i>
+                                            <span>BloodHound</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="bold">
+                            <a class="collapsible-header waves-effect waves-cyan">
+                                <i class="material-icons">dvr</i>
+                                <span class="nav-text">Alerts</span>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="static/html/alerts.html">
+                                            <i class="material-icons">keyboard_arrow_right</i>
+                                            <span>Active Alerts</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="material-icons">keyboard_arrow_right</i>
+                                            <span>Alert Filters</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="bold">
+                            <a class="collapsible-header  waves-effect waves-cyan">
+                                <i class="material-icons">account_circle</i>
+                                <span class="nav-text">User</span>
+                            </a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li>
+                                        <a href="static/html/user-profile-page.html">
+                                            <i class="material-icons">keyboard_arrow_right</i>
+                                            <span>User Profile</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
+                    <i class="material-icons">menu</i>
+                </a>
+            </ul>
+        </aside>
+    </div>
+</div>
+<!-- END LEFT SIDEBAR NAV-->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- START CONTENT -->
+{% block body %}{% endblock %}
+<!-- END MAIN -->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- START FOOTER -->
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container">
+        <span>Copyright ©
+          <script type="text/javascript">
+            document.write(new Date().getFullYear());
+          </script> KORE All rights reserved.</span>
+            <span class="right hide-on-small-only">WEB</a></span>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER -->
+<!-- ================================================
+     Scripts
+     ================================================ -->
+<!-- jQuery Library -->
+<script type="text/javascript" src="static/vendors/jquery-3.2.1.min.js"></script>
+<!--materialize js-->
+<script type="text/javascript" src="static/js/materialize.min.js"></script>
+<!--prism-->
+<script type="text/javascript" src="vendors/prism/prism.js"></script>
+<!--scrollbar-->
+<script type="text/javascript" src="static/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<!-- chartjs -->
+<script type="text/javascript" src="static/vendors/chartjs/chart.min.js"></script>
+<!--plugins.js - Some Specific JS codes for Plugin Settings-->
+<script type="text/javascript" src="static/js/plugins.js"></script>
+<!--custom-script.js - Add your own theme custom JS-->
+<script type="text/javascript" src="static/js/custom-script.js"></script>
+<script type="text/javascript" src="static/js/scripts/dashboard-ecommerce.js"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

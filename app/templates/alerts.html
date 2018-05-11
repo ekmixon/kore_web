@@ -1,0 +1,57 @@
+{% extends "header.html" %}
+{% block header %}
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="static/vendors/prism/prism.css" type="text/css" rel="stylesheet">
+    <!--jsgrid css-->
+    <link href="static/vendors/jsgrid/css/jsgrid.min.css" type="text/css" rel="stylesheet">
+    <link href="static/vendors/jsgrid/css/jsgrid-theme.min.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{%  block body %}
+        <section id="content">
+          <!--breadcrumbs start-->
+          <div id="breadcrumbs-wrapper">
+            <!-- Search for small screen -->
+            <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
+              <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col s10 m6 l6">
+                  <h5 class="breadcrumbs-title">Active Alerts</h5>
+                  <ol class="breadcrumbs">
+                    <li><a href="index.html">Dashboard</a>
+                    </li>
+                    <li><a href="#">Alerts</a>
+                    </li>
+                    <li class="active">Active Alerts</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--breadcrumbs end-->
+          <!--start container-->
+          <div class="container">
+              <!--Custom View-->
+              <div class="row">
+                <div class="col s12">
+                  <br/>
+                  <div id="jsGrid-custom"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end container-->
+        </section>
+{% endblock %}
+{% block js %}
+<!--angularjs-->
+<script type="text/javascript" src="static/vendors/angular.min.js"></script>
+<!--jsgrid-->
+<script type="text/javascript" src="static/vendors/jsgrid/js/db.js"></script>
+<!--data-->
+<script type="text/javascript" src="static/vendors/jsgrid/js/jsgrid.min.js"></script>
+<!--table-jsgrid.js - Page Specific JS codes-->
+<script type="text/javascript" src="static/js/scripts/table-jsgrid.js"></script>
+{% endblock %}

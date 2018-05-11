@@ -6,29 +6,33 @@ from flask import Flask, Blueprint, render_template, redirect, url_for, request,
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-@routes.route('/')
-@routes.route('/home')
-@routes.route('/index')
+@app.route('/')
+@app.route('/home')
+@app.route('/index')
 def home():
-    print "hello"
+    print "made it to index"
     return render_template('index.html')
 
-@routes.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     session['logged_in'] = True
     session['sidebar_collapse'] = False
-    return redirect(url_for('routes.home'))
+    return redirect(url_for('app.home'))
 
-@routes.route('/logout')
+@app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('routes.login'))
+    return redirect(url_for('app.login'))
+
+@app.route('/alerts')
+def alerts():
+    return render_template('alerts.html')
 
 
 if __name__ == '__main__':
     '''
     This is to enable debug testing of routes directly in Flask.  Not for production run through nginx/uwsgi.
     '''
-
+    print "starting up"
     app.secret_key = os.urandom(24)
-    app.run(host='0.0.0.0',port=8080, debug=True)
+    app.run(host='0.0.0.0',port=80, debug=True)
