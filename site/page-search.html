@@ -5,13 +5,15 @@
 	Version: 4.0
 	Author: PIXINVENT
 	Author URL: https://themeforest.net/user/pixinvent/portfolio
-  ================================================================================ -->
+================================================================================ -->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
-    <title>KORE | Alerts</title>
+    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
+    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+    <title>Kore Web | Search</title>
     <!-- Favicons-->
     <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
     <!-- Favicons-->
@@ -26,11 +28,7 @@
     <!-- Custome CSS-->
     <link href="css/custom/custom.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="vendors/prism/prism.css" type="text/css" rel="stylesheet">
     <link href="vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
-    <!--jsgrid css-->
-    <link href="vendors/jsgrid/css/jsgrid.min.css" type="text/css" rel="stylesheet">
-    <link href="vendors/jsgrid/css/jsgrid-theme.min.css" type="text/css" rel="stylesheet">
     <link href="vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
   </head>
   <body class="layout-semi-dark">
@@ -50,7 +48,7 @@
           <div class="nav-wrapper">
             <div class="header-search-wrapper hide-on-med-and-down sideNav-lock">
               <i class="material-icons">search</i>
-              <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Cipher Search" />
+              <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="MATCH (u:User {username: brandon)-[r]->(c:Computer) WHERE c.PAM = 0 RETURN c, r" />
             </div>
             <ul class="right hide-on-med-and-down">
               <li>
@@ -240,8 +238,8 @@
               </ul>
             </li>
             <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
-            <i class="material-icons">menu</i>
-          </a>
+              <i class="material-icons">menu</i>
+            </a>
         </aside>
         <!-- END LEFT SIDEBAR NAV-->
         <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -256,14 +254,27 @@
             <div class="container">
               <div class="row">
                 <div class="col s10 m6 l6">
-                  <h5 class="breadcrumbs-title">Active Alerts</h5>
+                  <h5 class="breadcrumbs-title">Search</h5>
                   <ol class="breadcrumbs">
-                    <li><a href="index.html">Dashboard</a>
-                    </li>
-                    <li><a href="#">Alerts</a>
-                    </li>
-                    <li class="active">Active Alerts</li>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">Search</li>
                   </ol>
+                </div>
+                <div class="col s2 m6 l6">
+                  <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right gradient-45deg-light-blue-cyan gradient-shadow" href="#!" data-activates="dropdown1">
+                    <i class="material-icons hide-on-med-and-up">settings</i>
+                    <span class="hide-on-small-onl">Settings</span>
+                    <i class="material-icons right">arrow_drop_down</i>
+                  </a>
+                  <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!" class="grey-text text-darken-2">Access<span class="badge">1</span></a>
+                    </li>
+                    <li><a href="#!" class="grey-text text-darken-2">Profile<span class="new badge">2</span></a>
+                    </li>
+                    <li><a href="#!" class="grey-text text-darken-2">Notifications</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -271,14 +282,183 @@
           <!--breadcrumbs end-->
           <!--start container-->
           <div class="container">
-              <!--Custom View-->
-              <div class="row">
-                <div class="col s12">
-                  <br/>
-                  <div id="jsGrid-custom"></div>
+            <div class="section">
+              <p class="caption">Input query to begin search!</p>
+              <div class="divider"></div>
+              <div class="col s12">
+                <ul id="task-card" class="collection with-header">
+                  <li class="collection-header gradient-45deg-light-blue-cyan">
+                    <h4 class="task-card-title">Results</h4>
+                  </li>
+                  <a href="#task-modal" class="task-add modal-trigger btn-floating waves-effect waves-light gradient-45deg-red-pink gradient-shadow">
+                    <i class="material-icons">add</i>
+                  </a>
+                  <li class="collection-item dismissable">
+                    <input type="checkbox" id="task5" />
+                    <label for="task5">c.name = Domain Controller<br>
+                                       c.description = Primary Domain Controller for your-domain.com<br>
+                                       r.login_date = Today at 13:40 GMT<br>
+                                       r.total_logins = 23<br>
+                                       r.first_login = September 11, 2017
+                      <a href="#" class="secondary-content">
+                        <span class="ultra-small">June 01, 2018</span>
+                      </a>
+                    </label>
+                    <span class="task-cat task-cat red accent-2">domain_controller_logs</span>
+                    <span class="task-cat task-cat blue accent-2">active_directory_gpo</span>
+                    <span class="task-cat task-cat green accent-2">security_center</span>
+                  </li>
+                  <li class="collection-item dismissable">
+                    <input type="checkbox" id="task5" />
+                    <label for="task5">c.name = Business Application 1<br>
+                      c.description = Server that houses companies intellectual property<br>
+                      r.login_date = Today at 13:43 GMT<br>
+                      r.total_logins = 2<br>
+                      r.first_login = February 1, 2018
+                      <a href="#" class="secondary-content">
+                        <span class="ultra-small">June 01, 2018</span>
+                      </a>
+                    </label>
+                    <span class="task-cat task-cat red accent-2">domain_controller_logs</span>
+                    <span class="task-cat task-cat blue accent-2">active_directory_gpo</span>
+                    <span class="task-cat task-cat brown accent-2">linux_logs</span>
+                  </li>
+                  <li class="collection-item dismissable">
+                    <input type="checkbox" id="task5" />
+                    <label for="task5">c.name = IIS Server<br>
+                      c.description = Primary web site for your-domain.com<br>
+                      r.login_date = Yesterday at 15:00 GMT<br>
+                      r.total_logins = 8<br>
+                      r.first_login = September 13, 2017
+                      <a href="#" class="secondary-content">
+                        <span class="ultra-small">June 01, 2018</span>
+                      </a>
+                    </label>
+                    <span class="task-cat task-cat red accent-2">domain_controller_logs</span>
+                    <span class="task-cat task-cat blue accent-2">active_directory_gpo</span>
+                    <span class="task-cat task-cat green accent-2">security_center</span>
+                  </li>
+                  <li class="collection-item dismissable">
+                    <input type="checkbox" id="task5" />
+                    <label for="task5">c.name = brandon-mbp<br>
+                      c.description = CEOs Computer<br>
+                      r.login_date = Today at 13:59 GMT<br>
+                      r.total_logins = 1<br>
+                      r.first_login = June 1, 2018
+                      <a href="#" class="secondary-content">
+                        <span class="ultra-small">June 01, 2018</span>
+                      </a>
+                    </label>
+                    <span class="task-cat task-cat orange accent-2">snort_logs</span>
+                    <span class="task-cat task-cat blue accent-2">active_directory_gpo</span>
+                    <span class="task-cat task-cat purple accent-2">tanium</span>
+                  </li>
+                </ul>
+                <div id="task-modal" class="modal">
+                  <nav class="task-modal-nav red">
+                    <div class="nav-wrapper">
+                      <div class="left col s12 m5 l5">
+                        <ul>
+                          <li>
+                            <a href="#!" class="todo-menu">
+                              <i class="material-icons modal-action modal-close">keyboard</i>
+                            </a>
+                          </li>
+                          <li><a href="#!" class="todo-add">Add</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col s12 m7 l7 hide-on-med-and-down">
+                        <ul class="right">
+                          <li>
+                            <a href="#!">
+                              <i class="material-icons">attach_file</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#!">
+                              <i class="material-icons">loyalty</i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#!">
+                              <i class="material-icons">more_vert</i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                  <div class="modal-content">
+                    <div class="row">
+                      <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="todo-title" type="text" class="validate">
+                            <label for="todo-title">Search</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Design</option>
+                              <option value="2">Develop</option>
+                              <option value="3">Testing</option>
+                            </select>
+                          </div>
+                          <div class="input-field col s6">
+                            <div class="file-field input-field">
+                              <input class="file-path validate" type="text" />
+                              <div class="btn">
+                                <span>File</span>
+                                <input type="file" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <textarea id="comments" class="materialize-textarea" length="500"></textarea>
+                            <label for="comments">Comments</label>
+                            <span class="character-counter"></span>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- Floating Action Button -->
+            <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+              <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow">
+                <i class="material-icons">add</i>
+              </a>
+              <ul>
+                <li>
+                  <a href="css-helpers.html" class="btn-floating blue">
+                    <i class="material-icons">help_outline</i>
+                  </a>
+                </li>
+                <li>
+                  <a href="cards-extended.html" class="btn-floating green">
+                    <i class="material-icons">widgets</i>
+                  </a>
+                </li>
+                <li>
+                  <a href="app-calendar.html" class="btn-floating amber">
+                    <i class="material-icons">today</i>
+                  </a>
+                </li>
+                <li>
+                  <a href="app-email.html" class="btn-floating red">
+                    <i class="material-icons">mail_outline</i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- Floating Action Button -->
           </div>
           <!--end container-->
         </section>
@@ -558,38 +738,28 @@
     </div>
     <!-- END MAIN -->
     <!-- //////////////////////////////////////////////////////////////////////////// -->
-      <!-- START FOOTER -->
-      <footer class="page-footer">
-        <div class="footer-copyright">
-          <div class="container">
-            <span>Copyright ©
-              <script type="text/javascript">
-                document.write(new Date().getFullYear());
-              </script> KORE All rights reserved.</span>
-            <span class="right hide-on-small-only">WEB</a></span>
-          </div>
+    <!-- START FOOTER -->
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+          <span>Copyright ©
+            <script type="text/javascript">
+              document.write(new Date().getFullYear());
+            </script> <a class="grey-text text-darken-2" href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.</span>
+          <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-darken-2" href="https://pixinvent.com/">PIXINVENT</a></span>
         </div>
-      </footer>
+      </div>
+    </footer>
     <!-- END FOOTER -->
     <!-- ================================================
     Scripts
     ================================================ -->
     <!-- jQuery Library -->
     <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
-    <!--angularjs-->
-    <script type="text/javascript" src="vendors/angular.min.js"></script>
     <!--materialize js-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <!--prism -->
-    <script type="text/javascript" src="vendors/prism/prism.js"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <!--jsgrid-->
-    <script type="text/javascript" src="vendors/jsgrid/js/db.js"></script>
-    <!--data-->
-    <script type="text/javascript" src="vendors/jsgrid/js/jsgrid.min.js"></script>
-    <!--table-jsgrid.js - Page Specific JS codes-->
-    <script type="text/javascript" src="js/scripts/table-jsgrid.js"></script>
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
     <script type="text/javascript" src="js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
