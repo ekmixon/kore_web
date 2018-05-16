@@ -46,8 +46,20 @@ def logout():
 
 @app.route('/alerts')
 @register_breadcrumb(app, '.', 'Alerts')
-def alerts():
+def page_alerts():
     return render_template('alerts.html')
+
+
+@app.route('/user-profile')
+@register_breadcrumb(app, '.', 'Profile')
+def page_user_profile():
+    return render_template('user-profile.html')
+
+
+@app.route('/search')
+@register_breadcrumb(app, '.', 'Search')
+def page_search():
+    return render_template('search.html')
 
 
 if __name__ == '__main__':
