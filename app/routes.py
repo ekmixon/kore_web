@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
 import os
-from flask import render_template, session, redirect, url_for, Flask
+
+import kore
+
+from flask import request, Flask, render_template, redirect, session, url_for
 from flask_breadcrumbs import Breadcrumbs, register_breadcrumb
 
 """
@@ -17,16 +20,23 @@ app = Flask(__name__)
 
 
 @app.route('/')
-@app.route('/home')
 @app.route('/index')
 @register_breadcrumb(app, '.', 'Home')
 def home():
-    return render_template('index.html')
+    """
+        Main page that will be presented to an account after successful login. Page should redirect to login
+        if a valid session is not detected.
+    """
+    return render_template('page-index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 @register_breadcrumb(app, '.', 'Login')
 def login():
+    """
+        Login page that will be presented to an account prior to entering any user specific page.
+        Successful login will return a valid session id.
+    """
     session['logged_in'] = True
     return redirect(url_for('app.home'))
 
@@ -34,6 +44,9 @@ def login():
 @app.route('/logout')
 @register_breadcrumb(app, '.', 'Logout')
 def logout():
+    """
+        Logout page.  Used to switch users or to null session.
+    """
     session.clear()
     return redirect(url_for('app.login'))
 
@@ -44,22 +57,31 @@ def logout():
 """
 
 
+@app.route('/page-search', methods=["GET", "POST"])
+@register_breadcrumb(app, '.', 'Search')
+def page_search():
+    """
+        Page focuses on doing analytical searches based off of cipher.  If a user browses to this page via a GET request
+        they will be prevented with an empty search page.  If the user browses via a redirect [POST] then it will
+        run their query and return the render the results on the page.
+    """
+
+    if request.method == 'POST':
+        kore.search.run_query(request.form.get('cipher'))
+        return render_template('page-search.html')
+    else:
+        return render_template('page-search.html')
+
 @app.route('/alerts')
 @register_breadcrumb(app, '.', 'Alerts')
 def page_alerts():
-    return render_template('alerts.html')
+    return render_template('page-alerts.html')
 
 
 @app.route('/user-profile')
 @register_breadcrumb(app, '.', 'Profile')
 def page_user_profile():
-    return render_template('user-profile.html')
-
-
-@app.route('/search')
-@register_breadcrumb(app, '.', 'Search')
-def page_search():
-    return render_template('search.html')
+    return render_template('page-user-profile.html')
 
 
 if __name__ == '__main__':
