@@ -95,7 +95,7 @@ if __name__ == '__main__':
             on security vice availability.
         [*] Need to think about implementing Blueprint to help manage this project.
     """
-    print("starting up")
+    mode = kore.Debug(True)
     app.secret_key = os.urandom(24)
     Breadcrumbs(app=app)
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host=mode.server, port=mode.port, debug=mode.enable)
