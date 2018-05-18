@@ -26,7 +26,7 @@
     {% block css %}{% endblock %}
 </head>
 <body class="layout-semi-dark">
-<!-- Start Page Loading --
+<!-- Start Page Loading -->
 <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
@@ -40,10 +40,13 @@
     <div class="navbar-fixed">
         <nav class="navbar-color">
             <div class="nav-wrapper">
-                <div class="header-search-wrapper hide-on-med-and-down sideNav-lock">
-                    <i class="material-icons">search</i>
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Cipher Search" />
-                </div>
+                <form action="cipher-search" method="POST">
+                    <div class="header-search-wrapper hide-on-med-and-down sideNav-lock">
+                        <i class="material-icons">search</i>
+                        <input type="text" name="cipher" class="header-search-input z-depth-2" placeholder="Cipher Search" />
+                        <input type="submit" />
+                    </div>
+                </form>
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
@@ -174,7 +177,7 @@
                                 <i class="material-icons">dashboard</i>
                                 <span class="nav-text">Applications</span>
                             </a>
-                            <div class="collapsible-body" style="display">
+                            <div class="collapsible-body" style="display:none">
                                 <ul>
                                     <li class="active">
                                         <a href="page-search">
@@ -275,6 +278,7 @@
 <!--custom-script.js - Add your own theme custom JS-->
 <script type="text/javascript" src="static/js/custom-script.js"></script>
 <script type="text/javascript" src="static/js/scripts/dashboard-ecommerce.js"></script>
+<script type="text/javascript" src="static/js/scripts/header-search.js"></script>
 {% block js %}{% endblock %}
 </body>
 </html>
