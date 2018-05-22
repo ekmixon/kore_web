@@ -59,7 +59,7 @@ def page_user_profile():
 @app.route('/search')
 @register_breadcrumb(app, '.', 'Search')
 def page_search():
-    return render_template('search.html')
+    return render_template('page-search.html')
 
 
 if __name__ == '__main__':
