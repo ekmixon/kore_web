@@ -21,7 +21,7 @@ app = Flask(__name__)
 @app.route('/index')
 @register_breadcrumb(app, '.', 'Home')
 def home():
-    return render_template('index.html')
+    return render_template('page-index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -47,13 +47,13 @@ def logout():
 @app.route('/alerts')
 @register_breadcrumb(app, '.', 'Alerts')
 def page_alerts():
-    return render_template('alerts.html')
+    return render_template('page-alerts.html')
 
 
 @app.route('/user-profile')
 @register_breadcrumb(app, '.', 'Profile')
 def page_user_profile():
-    return render_template('user-profile.html')
+    return render_template('page-user-profile.html')
 
 
 @app.route('/search')
