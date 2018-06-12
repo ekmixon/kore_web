@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
-    <title>KORE Web | </title>
+    <title>KORE Web | {{breadcrumb.title}}</title>
     <!-- Favicons-->
     <link rel="icon" href="static/images/favicon/favicon-32x32.png" sizes="32x32">
     <!-- Favicons-->
@@ -169,20 +169,20 @@
             <ul id="slide-out" class="side-nav fixed leftside-navigation">
                 <li class="no-padding">
                     <ul class="collapsible" data-collapsible="accordion">
-                        <li class="bold active">
+                        <li {% if breadcrumb.name in ["Search", "Bloodhound"] %} class="bold active" {% else %} class="bold" {% endif %}>
                             <a class="collapsible-header waves-effect waves-cyan">
                                 <i class="material-icons">dashboard</i>
                                 <span class="nav-text">Applications</span>
                             </a>
                             <div class="collapsible-body" style="display:none">
                                 <ul>
-                                    <li class="active">
-                                        <a href="page-search">
+                                    <li {% if breadcrumb.name == "Search" %} class="active" {% endif %}>
+                                        <a href="search">
                                             <i class="material-icons">keyboard_arrow_right</i>
                                             <span>Search</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li {% if breadcrumb.name == "Bloodhound" %} class="active" {% endif %}>
                                         <a href="bloodhound_app">
                                             <i class="material-icons">keyboard_arrow_right</i>
                                             <span>BloodHound</span>
@@ -191,20 +191,20 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="bold">
+                        <li {% if breadcrumb.name.startswith("Alert") %} class="bold active" {% else %} class="bold" {% endif %}>
                             <a class="collapsible-header waves-effect waves-cyan">
                                 <i class="material-icons">dvr</i>
                                 <span class="nav-text">Alerts</span>
                             </a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li>
+                                    <li {% if breadcrumb.name == "Alerts" %} class="active" {% endif %}>
                                         <a href="alerts">
                                             <i class="material-icons">keyboard_arrow_right</i>
                                             <span>Active Alerts</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li {% if breadcrumb.name == "Alert Filters" %} class="active" {% endif %}>
                                         <a href="alert_filters">
                                             <i class="material-icons">keyboard_arrow_right</i>
                                             <span>Alert Filters</span>
@@ -213,14 +213,14 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="bold">
+                        <li {% if breadcrumb.name in ["Profile"] %} class="bold active" {% else %} class="bold" {% endif %}>
                             <a class="collapsible-header  waves-effect waves-cyan">
                                 <i class="material-icons">account_circle</i>
                                 <span class="nav-text">User</span>
                             </a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li>
+                                    <li {% if breadcrumb.name == "Profile" %} class="active" {% endif %}>
                                         <a href="user-profile-page">
                                             <i class="material-icons">keyboard_arrow_right</i>
                                             <span>User Profile</span>

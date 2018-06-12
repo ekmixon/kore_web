@@ -1,15 +1,19 @@
 #!/usr/bin/python3
 
 import os
+import kore
+
 from flask import render_template, session, redirect, url_for, Flask
 from flask_breadcrumbs import Breadcrumbs, register_breadcrumb
+
 
 """
     Building out the application object [app].  Need to rename 'app' to something that makes sense.
     Can do this later.
 """
 app = Flask(__name__)
-
+Breadcrumbs(app=app)
+BREADCRUMB = kore.Breadcrumb()
 """ 
     Separating out the Login, Logout, and Home pages from the rest of the pages.  These are the only 
     pages that will not require a session prior to rendering.
@@ -21,12 +25,14 @@ app = Flask(__name__)
 @app.route('/index')
 @register_breadcrumb(app, '.', 'Home')
 def home():
-    return render_template('page-index.html')
+    BREADCRUMB.update("Home")
+    return render_template('page-index.html', breadcrumb=BREADCRUMB, aggregator = kore.aggregator)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 @register_breadcrumb(app, '.', 'Login')
 def login():
+    BREADCRUMB.update("Login")
     session['logged_in'] = True
     return redirect(url_for('app.home'))
 
@@ -34,6 +40,7 @@ def login():
 @app.route('/logout')
 @register_breadcrumb(app, '.', 'Logout')
 def logout():
+    BREADCRUMB.update("Logout")
     session.clear()
     return redirect(url_for('app.login'))
 
@@ -47,19 +54,22 @@ def logout():
 @app.route('/alerts')
 @register_breadcrumb(app, '.', 'Alerts')
 def page_alerts():
-    return render_template('page-alerts.html')
+    BREADCRUMB.update("Alerts")
+    return render_template('page-alerts.html', breadcrumb=BREADCRUMB)
 
 
 @app.route('/user-profile')
 @register_breadcrumb(app, '.', 'Profile')
 def page_user_profile():
-    return render_template('page-user-profile.html')
+    BREADCRUMB.update("Profile")
+    return render_template('page-user-profile.html', breadcrumb=BREADCRUMB)
 
 
 @app.route('/search')
 @register_breadcrumb(app, '.', 'Search')
 def page_search():
-    return render_template('page-search.html')
+    BREADCRUMB.update("Search")
+    return render_template('page-search.html', breadcrumb=BREADCRUMB)
 
 
 if __name__ == '__main__':
@@ -75,5 +85,4 @@ if __name__ == '__main__':
     """
     print("starting up")
     app.secret_key = os.urandom(24)
-    Breadcrumbs(app=app)
     app.run(host='0.0.0.0', port=80, debug=True)
